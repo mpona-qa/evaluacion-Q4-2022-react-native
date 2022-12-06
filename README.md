@@ -1,4 +1,4 @@
-# Señority Q3 2022
+# Señority Q4 2022
 
 Para el desarrollo del proyecto debe guiarse de los siguientes estándares.
 
