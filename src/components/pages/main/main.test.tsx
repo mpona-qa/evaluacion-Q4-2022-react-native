@@ -1,7 +1,7 @@
 import {render, screen, fireEvent} from '@testing-library/react-native';
 import {Linking} from 'react-native';
-import Documentation from './documentation';
-import {primary, background} from '../../../../theme/theme';
+import Documentation from './main';
+import {primary, background} from '../../../../utils/theme/theme';
 import DeleteIcon from '../../../assets/DeleteIcon.png';
 import WarningIcon from '../../../assets/WarningIcon.png';
 

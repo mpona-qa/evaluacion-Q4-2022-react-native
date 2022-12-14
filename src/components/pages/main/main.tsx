@@ -6,17 +6,15 @@ import {
   DocumentationTitle,
   ExternalLink,
   RowContainer,
-} from './documentation.styles';
-import {primary, background} from '../../../../theme/theme';
+} from './main.styles';
+import {primary, background} from '../../../../utils/theme/theme';
 import DeleteIcon from '../../../assets/DeleteIcon.png';
 import WarningIcon from '../../../assets/WarningIcon.png';
 import Icon from '../../atoms/icon/icon';
 import {Linking, Text} from 'react-native';
+import {API_URL, GIFS_URL} from '../../../../utils/constants/urls';
 
-const API_URL = 'https://documenter.getpostman.com/view/21329689/2s8YsnYwZr';
-const GIFS_URL = 'https://tenor.com/es-419/search/avengers-gifs';
-
-const Documentation: FC = () => {
+const Main: FC = () => {
   return (
     <DocumentationContainer>
       <DocumentationTitle headerTitle>
@@ -51,4 +49,4 @@ const Documentation: FC = () => {
   );
 };
 
-export default Documentation;
+export default Main;
