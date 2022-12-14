@@ -1,21 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
-import React, {type PropsWithChildren} from 'react';
-import {SafeAreaView, Text} from 'react-native';
-import Documentation from './src/components/pages/documentation/documentation';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
+import Main from './src/components/pages/main/main';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <Documentation />
+      <Main />
     </SafeAreaView>
   );
 };
