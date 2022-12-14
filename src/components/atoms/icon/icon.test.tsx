@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react-native';
 import Icon from './icon';
-import DeleteIcon from '../../../assets/DeleteIcon.png';
+import DeleteIcon from '../../../assets/delete-icon.png';
 
 describe('Icon Component', () => {
   test('Should render a text', () => {
