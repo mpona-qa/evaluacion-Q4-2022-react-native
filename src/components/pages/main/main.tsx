@@ -7,12 +7,12 @@ import {
   ExternalLink,
   RowContainer,
 } from './main.styles';
-import {primary, background} from '../../../../utils/theme/theme';
-import DeleteIcon from '../../../assets/DeleteIcon.png';
-import WarningIcon from '../../../assets/WarningIcon.png';
+import {primary, background} from '../../../utils/theme/theme';
+import DeleteIcon from '../../../assets/delete-icon.png';
+import WarningIcon from '../../../assets/warning-icon.png';
 import Icon from '../../atoms/icon/icon';
 import {Linking, Text} from 'react-native';
-import {API_URL, GIFS_URL} from '../../../../utils/constants/urls';
+import {API_URL, GIFS_URL} from '../../../utils/constants/urls';
 
 const Main: FC = () => {
   return (
