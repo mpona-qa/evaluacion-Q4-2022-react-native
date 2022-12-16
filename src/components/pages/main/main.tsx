@@ -43,7 +43,7 @@ const Main: FC = () => {
       </ExternalLink>
       <DocumentationTitle>GIFs</DocumentationTitle>
       <ExternalLink onPress={() => Linking.openURL(GIFS_URL)}>
-        Página de GIFs
+        Página de GIF
       </ExternalLink>
     </DocumentationContainer>
   );
