@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
 
-export const IconContainer = styled.View`
-  margin-right: 20px;
+export const IconContainer = styled.TouchableOpacity`
+  margin-right: 0;
 `;
 
 export const IconImage = styled.Image`
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   resize-mode: contain;
 `;

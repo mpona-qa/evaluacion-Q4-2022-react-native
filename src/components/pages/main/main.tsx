@@ -1,51 +1,30 @@
-import React, {FC} from 'react';
-import {
-  ColorIndicator,
-  ColorTitle,
-  DocumentationContainer,
-  DocumentationTitle,
-  ExternalLink,
-  RowContainer,
-} from './main.styles';
-import {primary, background} from '../../../utils/theme/theme';
-import DeleteIcon from '../../../assets/delete-icon.png';
-import WarningIcon from '../../../assets/warning-icon.png';
-import Icon from '../../atoms/icon/icon';
-import {Linking, Text} from 'react-native';
-import {API_URL, GIFS_URL} from '../../../utils/constants/urls';
+import React, {FC, useState} from 'react';
+import {AUTHOR_ID, INPUT_SEARCH} from '../../../utils/constants/strings';
+import {View} from 'react-native';
+import {styles} from './main.styles';
+import AddIcon from '../../../utils/assets/add-icon.png';
+import MainTemplate from '../../templates/main-template/main-template';
+import UseGiftFetch from '../../../hooks/use-gift-fetch/use-gift-fetch';
+import {ADD_API, GIFS_API} from '../../../utils/constants/urls';
+import {createItem} from '../../../services/gift/gift-service';
 
 const Main: FC = () => {
+  const [addGift, setAddGift] = useState<string>('');
+  const {data, status} = UseGiftFetch(GIFS_API);
   return (
-    <DocumentationContainer>
-      <DocumentationTitle headerTitle>
-        Evaluación Técnica Q4 2022
-      </DocumentationTitle>
-      <DocumentationTitle>Colores</DocumentationTitle>
-      <RowContainer haveBottomSpacing>
-        <ColorTitle>Principal</ColorTitle>
-        <ColorIndicator testID={`indicator-${primary}`} color={primary} />
-        <Text>{primary}</Text>
-      </RowContainer>
-      <RowContainer>
-        <ColorTitle>Fondo</ColorTitle>
-        <ColorIndicator testID={`indicator-${background}`} color={background} />
-        <Text>{background}</Text>
-      </RowContainer>
-      <DocumentationTitle>Íconos</DocumentationTitle>
-      <RowContainer>
-        <Icon image={DeleteIcon} description={'Delete Icon'} />
-        <Icon image={WarningIcon} description={'Warning Icon'} />
-      </RowContainer>
-
-      <DocumentationTitle>API REST</DocumentationTitle>
-      <ExternalLink onPress={() => Linking.openURL(API_URL)}>
-        Documentación de la API REST
-      </ExternalLink>
-      <DocumentationTitle>GIFs</DocumentationTitle>
-      <ExternalLink onPress={() => Linking.openURL(GIFS_URL)}>
-        Página de GIF
-      </ExternalLink>
-    </DocumentationContainer>
+    <View style={styles.container}>
+      <MainTemplate
+        placeholder={INPUT_SEARCH}
+        onChangeText={(value: string) => setAddGift(value)}
+        warningIcon={AddIcon}
+        onPress={() => {
+          createItem(ADD_API, {url: addGift, author_id: AUTHOR_ID});
+        }}
+        data={data}
+        status={status}>
+        Gift Galery
+      </MainTemplate>
+    </View>
   );
 };
 
