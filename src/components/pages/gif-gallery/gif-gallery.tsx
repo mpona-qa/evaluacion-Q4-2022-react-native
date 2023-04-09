@@ -13,7 +13,6 @@ const GifGallery: FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
   useEffect(() => {
-    console.log('martin');
     getGifs()
       .then(responseGifs => {
         setGifs(responseGifs);

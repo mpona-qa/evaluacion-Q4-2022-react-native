@@ -1,18 +1,29 @@
 import React, {FC, ReactNode} from 'react';
-import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {TouchableOpacity, ViewStyle} from 'react-native';
 
 interface ButtonProps {
   children: ReactNode;
   onButtonPress: () => void;
-  buttonStyle?: TouchableOpacityProps;
+  buttonStyle?: ViewStyle;
+  accessibilityLabel?: string;
 }
 
-const Button: FC<ButtonProps> = ({children, onButtonPress, buttonStyle}) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  onButtonPress,
+  buttonStyle,
+  accessibilityLabel,
+}) => {
   const onHandleOnPress = () => {
     onButtonPress();
   };
   return (
-    <TouchableOpacity style={buttonStyle} onPress={onHandleOnPress}>
+    <TouchableOpacity
+      accessible
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      style={buttonStyle}
+      onPress={onHandleOnPress}>
       {children}
     </TouchableOpacity>
   );

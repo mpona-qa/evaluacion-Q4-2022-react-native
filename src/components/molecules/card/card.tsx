@@ -21,7 +21,6 @@ const Card: FC<CardProps> = ({style, gif, onDeleteGif}) => {
       data={gif}
       keyExtractor={item => item.id?.toString()}
       renderItem={({item}) => {
-        console.log('RENDER ITEM');
         return (
           <View>
             <Image
@@ -31,7 +30,9 @@ const Card: FC<CardProps> = ({style, gif, onDeleteGif}) => {
               }}
             />
             <View style={styles.closeButton}>
-              <Button onButtonPress={() => onHandlePress(item)}>
+              <Button
+                onButtonPress={() => onHandlePress(item)}
+                accessibilityLabel="Eliminar Gif">
                 <Icon image={DeleteIcon} />
               </Button>
             </View>

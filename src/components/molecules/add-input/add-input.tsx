@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useState} from 'react';
 import {ImageSourcePropType, View, ViewProps} from 'react-native';
 import {Input, Icon, Button} from '../../atoms';
 import {styles} from './add-text.styles';
@@ -31,7 +31,9 @@ const AddInput: FC<AddTextProps> = ({style, image, onAdd, placeholder}) => {
           onChangeTextInput={onHandleChangeText}
         />
       </View>
-      <Button onButtonPress={onHandleButtonPress}>
+      <Button
+        onButtonPress={onHandleButtonPress}
+        accessibilityLabel="Agregar un nuevo gif">
         <Icon image={image} />
       </Button>
     </View>
