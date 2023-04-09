@@ -6,7 +6,7 @@ interface InputProps {
   style?: TextInputProps;
   onChangeTextInput: (text: string) => void;
   placeholder: string;
-  value: string | undefined;
+  value?: string | undefined;
 }
 
 const Input: FC<InputProps> = ({
