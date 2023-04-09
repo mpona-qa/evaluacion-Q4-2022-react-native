@@ -1,11 +1,12 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import Main from './components/pages/main/main';
+import GifGallery from './components/pages/gif-gallery/gif-gallery';
+import {styles} from './App.styles';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Main />
+    <SafeAreaView style={styles.safeAreaContainer}>
+      <GifGallery />
     </SafeAreaView>
   );
 };

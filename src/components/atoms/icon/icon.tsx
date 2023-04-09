@@ -1,19 +1,22 @@
 import React, {FC} from 'react';
-import {ImageSourcePropType, Text} from 'react-native';
-import {IconContainer, IconImage} from './icon.styles';
+import {Image, ImageProps, ImageSourcePropType, Text, View} from 'react-native';
+import {styles} from './icon.styles';
 
-interface IconProps {
+type IconProps = {
+  style?: ImageProps;
   image: ImageSourcePropType;
-  description: string;
-}
+  description?: string;
+};
 
-const Icon: FC<IconProps> = props => {
+const Icon: FC<IconProps> = ({style, image, description}) => {
   return (
-    <IconContainer>
-      <IconImage testID={props.description} source={props.image} />
-      <Text>{props.description}</Text>
-    </IconContainer>
+    <View>
+      <Image testID="iconID" source={image} style={[styles.icon, style]} />
+      {description && description.length > 0 && (
+        <Text style={styles.description}>{description}</Text>
+      )}
+    </View>
   );
 };
 
-export default Icon;
+export {Icon};

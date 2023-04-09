@@ -1,11 +1,16 @@
-import styled from 'styled-components/native';
+import {StyleSheet} from 'react-native';
+import {foreground} from '../../../utils/theme/theme';
 
-export const IconContainer = styled.View`
-  margin-right: 20px;
-`;
+const styles = StyleSheet.create({
+  icon: {
+    alignSelf: 'center',
+    height: 50,
+    width: 50,
+  },
+  description: {
+    fontSize: 25,
+    color: foreground,
+  },
+});
 
-export const IconImage = styled.Image`
-  width: 70px;
-  height: 70px;
-  resize-mode: contain;
-`;
+export {styles};
