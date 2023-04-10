@@ -6,11 +6,10 @@ import WarningIcon from '../../../utils/assets/WarningIcon.png';
 import {styles} from './gif-gallery.styles';
 import {Gif} from '../../../utils/interfaces/gif';
 import {Icon} from '../../atoms';
-import {addGif, getGifs, removeGif} from '../../../services/gif';
+import {addGif, getGifs, removeGif} from '../../../services/gif-services';
 
 const GifGallery: FC = () => {
   const [gifs, setGifs] = useState<Gif[]>([]);
-  const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
   useEffect(() => {
     getGifs()
@@ -18,7 +17,7 @@ const GifGallery: FC = () => {
         setGifs(responseGifs);
       })
       .catch(() => {
-        setErrorMessage('No se pudo obtener los GIFs');
+        console.log('No se pudo obtener los GIFs');
       });
   }, []);
 
@@ -31,7 +30,7 @@ const GifGallery: FC = () => {
       const response = await addGif(urlGif);
       setGifs([...gifs, response]);
     } catch (error) {
-      setErrorMessage(
+      console.log(
         (error as {message: string})?.message ?? 'No se pudo agregar el GIF',
       );
     }
@@ -44,7 +43,7 @@ const GifGallery: FC = () => {
         setGifs(newGifs);
       })
       .catch(() => {
-        setErrorMessage('No se pudo eliminar el GIF');
+        console.log('No se pudo eliminar el GIF');
       });
   };
 

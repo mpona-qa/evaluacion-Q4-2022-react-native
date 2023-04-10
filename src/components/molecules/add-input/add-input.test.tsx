@@ -14,14 +14,18 @@ describe('AddInput Component', () => {
   });
 
   it('Should execute onHandleButtonPress and execute onAdd', () => {
-    const mockOnChange = jest.fn();
+    const mockOnHandleButtonPress = jest.fn();
     render(
-      <AddInput onAdd={mockOnChange} placeholder="Add Gif" image={AddIcon} />,
+      <AddInput
+        onAdd={mockOnHandleButtonPress}
+        placeholder="Add Gif"
+        image={AddIcon}
+      />,
     );
     const input = screen.getByPlaceholderText('Add Gif');
     fireEvent.changeText(input, 'nuevo gif');
     const icon = screen.getByTestId('iconID');
     fireEvent.press(icon);
-    expect(mockOnChange).toBeCalledWith('nuevo gif');
+    expect(mockOnHandleButtonPress).toBeCalledWith('nuevo gif');
   });
 });
