@@ -49,6 +49,9 @@
       "jsx",
       "json",
       "node"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)/"
     ]
   },
   "setupFilesAfterEnv": [

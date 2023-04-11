@@ -21,8 +21,9 @@ const Card: FC<CardProps> = ({style, gif, onDeleteGif}) => {
       data={gif}
       keyExtractor={item => item.id?.toString()}
       renderItem={({item}) => {
+        console.log('ITEM');
         return (
-          <View>
+          <View testID={item.id?.toString()}>
             <Image
               style={styles.card}
               source={{

@@ -1,51 +1,14 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {Text, View} from 'react-native';
 import {AddInput, Card} from '../../molecules';
 import AddIcon from '../../../utils/assets/AddIcon.png';
 import WarningIcon from '../../../utils/assets/WarningIcon.png';
 import {styles} from './gif-gallery.styles';
-import {Gif} from '../../../utils/interfaces/gif';
 import {Icon} from '../../atoms';
-import {addGif, getGifs, removeGif} from '../../../services/gif-services';
+import {useGifGallery} from './use-gif-gallery/use-gif-gallery';
 
 const GifGallery: FC = () => {
-  const [gifs, setGifs] = useState<Gif[]>([]);
-
-  useEffect(() => {
-    getGifs()
-      .then(responseGifs => {
-        setGifs(responseGifs);
-      })
-      .catch(() => {
-        console.log('No se pudo obtener los GIFs');
-      });
-  }, []);
-
-  const handleAddGif = async (urlGif: string) => {
-    try {
-      if (!urlGif) {
-        throw new Error('Debe agregar una cadena de texto');
-      }
-
-      const response = await addGif(urlGif);
-      setGifs([...gifs, response]);
-    } catch (error) {
-      console.log(
-        (error as {message: string})?.message ?? 'No se pudo agregar el GIF',
-      );
-    }
-  };
-
-  const handleDeleteGif = (gif: Gif) => {
-    removeGif(gif)
-      .then(() => {
-        const newGifs = gifs.filter(item => item.id !== gif.id);
-        setGifs(newGifs);
-      })
-      .catch(() => {
-        console.log('No se pudo eliminar el GIF');
-      });
-  };
+  const {gifs, handleAddGif, handleDeleteGif} = useGifGallery();
 
   return (
     <View style={styles.container}>
