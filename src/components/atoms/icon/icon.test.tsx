@@ -1,3 +1,4 @@
+import React from 'react';
 import {render, screen} from '@testing-library/react-native';
 import DeleteIcon from '../../../assets/delete-icon.png';
 import {Icon} from './icon';
