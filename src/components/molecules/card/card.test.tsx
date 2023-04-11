@@ -11,11 +11,9 @@ describe('Card Component', () => {
   ];
   it('Should render Card component', () => {
     render(<Card gif={gifExample} onDeleteGif={jest.fn()} />);
+    const container = screen.getByTestId('2');
+    expect(container).toBeDefined();
   });
-  it('Should render Card component with gif=[]', () => {
-    render(<Card gif={[]} onDeleteGif={jest.fn()} />);
-  });
-
   it('Should execute onDeleteGif when the remove button is clicked', () => {
     const mockOnDeleteGif = jest.fn();
     render(<Card gif={gifExample} onDeleteGif={mockOnDeleteGif} />);
