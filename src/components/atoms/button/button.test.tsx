@@ -24,6 +24,7 @@ describe('Button test', () => {
 
     const button = screen.getByRole('button', {name: 'Aceptar'});
     fireEvent.press(button);
+
     expect(mockOnClick).toBeCalled();
   });
   it('Should render the button with correctly styles ', () => {
